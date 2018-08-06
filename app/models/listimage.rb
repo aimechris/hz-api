@@ -1,0 +1,2 @@
+class Listimage < ApplicationRecord
+end
