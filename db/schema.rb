@@ -10,16 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180806170843) do
+ActiveRecord::Schema.define(version: 20180806193703) do
 
   create_table "advertisers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "phone"
-    t.string "location"
+    t.string "address"
     t.string "avatar"
     t.string "email"
-    t.string "password"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -38,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180806170843) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
   create_table "authors", force: :cascade do |t|
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20180806170843) do
     t.text "about"
     t.string "avatar"
     t.string "email"
-    t.string "password"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -65,6 +64,7 @@ ActiveRecord::Schema.define(version: 20180806170843) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 20180806170843) do
     t.string "display_img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "created_by"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -161,7 +162,6 @@ ActiveRecord::Schema.define(version: 20180806170843) do
     t.string "location"
     t.string "avatar"
     t.string "email"
-    t.string "password"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -180,6 +180,7 @@ ActiveRecord::Schema.define(version: 20180806170843) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
 end

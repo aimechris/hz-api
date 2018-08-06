@@ -4,6 +4,7 @@ class Listing < ApplicationRecord
   has_many :listimages
   belongs_to :advertiser
 
-  # Validation
-  # validates_presence_of :
+  # Validations
+  validates_presence_of :address, :zip_code, :city, :state, :bed, :bath, :sqft, :property_type, :built_year, :sale_type, :price, :title, :description, :display_img
+  
 end
