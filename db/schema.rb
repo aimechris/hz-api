@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180806193703) do
+ActiveRecord::Schema.define(version: 20180807100738) do
 
   create_table "advertisers", force: :cascade do |t|
     t.string "first_name"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20180806193703) do
     t.integer "listing_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "created_by"
     t.index ["listing_id"], name: "index_favorites_on_listing_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
@@ -86,6 +87,12 @@ ActiveRecord::Schema.define(version: 20180806193703) do
     t.string "feature_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "features_listings", id: false, force: :cascade do |t|
+    t.integer "feature_id", null: false
+    t.integer "listing_id", null: false
+    t.index ["feature_id", "listing_id"], name: "index_features_listings_on_feature_id_and_listing_id"
   end
 
   create_table "listimages", force: :cascade do |t|
@@ -141,11 +148,18 @@ ActiveRecord::Schema.define(version: 20180806193703) do
     t.index ["tag_id"], name: "index_posts_on_tag_id"
   end
 
+  create_table "posts_tags", id: false, force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "tag_id", null: false
+    t.index ["post_id", "tag_id"], name: "index_posts_tags_on_post_id_and_tag_id"
+  end
+
   create_table "searches", force: :cascade do |t|
     t.string "url_search"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "created_by"
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
 

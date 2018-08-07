@@ -6,5 +6,5 @@ class Advertiser < ApplicationRecord
 
   # Validations
   validates_presence_of :first_name, :last_name, :phone, :address, :email, :password_digest
-  
+
 end
