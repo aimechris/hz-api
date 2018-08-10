@@ -15,9 +15,13 @@ module ExceptionHandler
   end
 
   private
-
+  # JSON response with message; Status code 422 - unprocessable entity
    def four_twenty_two(e)
      json_response({ message: e.message}, :unauthorized)
+   end
+   # JSON response with message; Status code 401 - Unauthorized
+   def unauthorized_request(e)
+     json_response({ message: e.message }, :unauthorized)
    end
 
 end
