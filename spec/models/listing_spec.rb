@@ -4,6 +4,7 @@ RSpec.describe Listing, type: :model do
   # Association Test
   it { should have_and_belong_to_many (:features) }
   it { should have_many(:listimages) }
+  it { should accept_nested_attributes_for(:listimages) }
   # Validation Test
   it { should validate_presence_of (:address) }
   it { should validate_presence_of (:zip_code) }
