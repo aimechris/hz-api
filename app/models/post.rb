@@ -1,7 +1,8 @@
 class Post < ApplicationRecord
   # Associations
   belongs_to :category
-  has_and_belongs_to_many :tags
+  has_many :tags, inverse_of: :post
+  accepts_nested_attributes_for :tags
   # Validations
   validates_presence_of :title, :content, :post_image
 end

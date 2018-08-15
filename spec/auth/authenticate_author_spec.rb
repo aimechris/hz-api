@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Authenticateauthor do
+RSpec.describe AuthenticateAuthor do
   # create test author
   let(:author) { create(:author) }
   # valid request subject

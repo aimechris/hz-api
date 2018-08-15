@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       :first_name,
       :last_name,
       :phone,
-      :location
+      :location,
       :email,
       :password,
       :password_confirmation
