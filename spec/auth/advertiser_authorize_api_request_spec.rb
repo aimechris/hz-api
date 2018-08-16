@@ -4,7 +4,7 @@ RSpec.describe AdvertiserAuthorizeApiRequest do
   # Create test advertiser
   let(:advertiser) { create(:advertiser) }
   # Mock 'Authorization' header
-  let(:header) { { 'Authorization' => advertiser_token_generator(advertiser.id) } }
+  let(:headers) { { 'Authorization' => advertiser_token_generator(advertiser.id) } }
   # Invalid request
   subject(:invalid_request_obj) { described_class.new({}) }
   # Valid request subject

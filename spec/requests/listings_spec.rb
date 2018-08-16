@@ -24,6 +24,64 @@ RSpec.describe 'Listings API', type: :request do
     end
   end
 
+  # Search
+  describe 'GET /search' do
+    before { get '/search'}
+
+    context 'When searched results found' do
+
+      it "returns listings" do
+        expect(json).not_to be_empty
+        expect(json.size).to eq(25)
+      end
+
+      it "returns status code ok" do
+        expect(response).to have_http_status(200)
+      end
+
+    end
+
+    context "when it doesn't return results" do
+
+      it "returns status code 404" do
+        expect(response).to have_http_status(404)
+      end
+
+      it "returns a not found message" do
+        expect(response.body).to match(/No Listings found/)
+      end
+    end
+  end
+
+  # Filter
+  describe 'GET /filter' do
+    before { get '/filter'}
+
+    context 'When searched results found' do
+
+      it "returns listings" do
+        expect(json).not_to be_empty
+        expect(json.size).to eq(25)
+      end
+
+      it "returns status code ok" do
+        expect(response).to have_http_status(200)
+      end
+
+    end
+
+    context "when it doesn't return results" do
+
+      it "returns status code 404" do
+        expect(response).to have_http_status(404)
+      end
+
+      it "returns a not found message" do
+        expect(response.body).to match(/No Listings found/)
+      end
+    end
+  end
+
   describe 'GET /listings/:id' do
     before { get "/listings/#{listing_id}" }
 

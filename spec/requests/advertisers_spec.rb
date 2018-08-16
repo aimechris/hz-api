@@ -38,4 +38,35 @@ RSpec.describe 'Advertisers API', type: :request do
       end
     end
   end
+
+  # Advertiser dashboard
+  describe 'GET /dashboard' do
+    context 'when advertiser is authorized' do
+      context 'when advertiser has Listings' do
+        it "returns advertiser's listings" do
+          expect(json).not_to be_empty
+        end
+
+        it "returns advertiser's listings statistics" do
+          expect(json).not_to be_empty
+        end
+
+        it "returns advertiser's listings messages" do
+          expect(json).not_to be_empty
+        end
+      end
+
+      context "when advertiser doesn't have listing" do
+        it "returns a message telling him/her create listing" do
+          expect(response.body).to match(/Rent or Sell a Property/)
+        end
+      end
+    end
+
+    context 'when advertiser is unauthorized' do
+      it "returns a status code 404" do
+        expect(response).to have_http_status(404)
+      end
+    end
+  end
 end

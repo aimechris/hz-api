@@ -22,5 +22,6 @@ RSpec.describe Listing, type: :model do
   it { should validate_presence_of (:description) }
   it { should validate_presence_of (:display_img) }
   it { should validate_presence_of (:created_by) }
-
+  #query Test
+  
 end

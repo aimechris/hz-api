@@ -37,7 +37,7 @@ class AdvertiserAuthorizeApiRequest
 
   def http_auth_header
     if headers['Authorization'].present?
-      return header['Authorization'].spilt('').last
+      return headers['Authorization'].split('').last
     end
       raise(ExceptionHandler::MissingToken, Message.missing_token)
   end
