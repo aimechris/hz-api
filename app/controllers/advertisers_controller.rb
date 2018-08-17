@@ -9,11 +9,11 @@ class AdvertisersController < ApplicationController
   end
 
   def dashboard
-    # message = Message.find_by wher
+    @messages = Message.find()
     # statistics = List
-    # listing = Listing.All
-    # response = { messages: message, listings:listings, statistics:statistics }
-    # json_response(response)
+    @listings = Listing.find()
+    response = { listings: @listings, messages: @messages }
+    json_response(response)
   end
 
   private

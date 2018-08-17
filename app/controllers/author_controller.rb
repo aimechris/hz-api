@@ -8,7 +8,13 @@ class AuthorController < ApplicationController
     json_response(response, :created)
   end
 
-  def advertiser_params
+  def dashboard
+    @posts = Post.find()
+    json_response(@posts)
+  end
+  private
+
+  def author_params
     params.permit(
       :first_name,
       :last_name,

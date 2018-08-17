@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
   def index
     @listings = Listings.all
   end
-  #
+  # show
   def show
     json_response(@listing)
   end
@@ -32,9 +32,9 @@ class ListingsController < ApplicationController
                   :property_type, :built_year,
                   :sale_type, :price, :title,
                   :description, :virtual_tour, :display_img,
-                  :listimages_attributes(
+                  :listimages_attributes[
                     :image
-                  )
+                  ]
                 )
   end
 
